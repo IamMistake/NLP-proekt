@@ -45,7 +45,7 @@
           <a href="#results" class="toc-link"><i class="fa-solid fa-chart-bar"></i> Results</a>
           <a href="#setup" class="toc-link"><i class="fa-solid fa-rocket"></i> Setup</a>
           <a href="#usage" class="toc-link"><i class="fa-solid fa-terminal"></i> Usage</a>
-          <a href="#team" class="toc-link"><i class="fa-solid fa-users"></i> Team</a>
+          <a href="#technologies" class="toc-link"><i class="fa-solid fa-microchip"></i> Technologies</a>
         </div>
       </div>
     </div>
@@ -136,20 +136,18 @@
             </div>
           </div>
 
-          <div class="hero-visual" aria-label="GraphRAG pipeline flow visualization">
-            <div class="signal-orb"></div>
-            <div class="safety-stack">
-              <div class="stack-topline"><span>pipeline</span><code>kg &rarr; qa</code></div>
-              <div class="stack-row raw"><span class="stack-dot"></span><span>plain text</span><strong>input</strong></div>
-              <div class="stack-row score"><span class="stack-dot"></span><span>kg-gen</span><strong>graph</strong></div>
-              <div class="stack-row sus"><span class="stack-dot"></span><span>subgraph</span><strong>retrieval</strong></div>
-              <div class="stack-row safe"><span class="stack-dot"></span><span>answer +</span><strong>provenance</strong></div>
-              <div class="stack-footer"><i class="fa-solid fa-diagram-project"></i> Structured KG &rarr; Evidence-backed QA</div>
-            </div>
-          </div>
+
         </div>
 
         <div class="metrics-strip">
+          <div class="metric-card">
+            <span class="metric-num">0.219</span>
+            <div class="metric-label">Best Recall@5 (Lastturn)</div>
+          </div>
+          <div class="metric-card">
+            <span class="metric-num">0.198</span>
+            <div class="metric-label">Best nDCG@5 (Lastturn)</div>
+          </div>
           <div class="metric-card">
             <span class="metric-num">4</span>
             <div class="metric-label">Benchmark Domains</div>
@@ -157,14 +155,6 @@
           <div class="metric-card">
             <span class="metric-num">64</span>
             <div class="metric-label">Dev Evaluation Tasks</div>
-          </div>
-          <div class="metric-card">
-            <span class="metric-num">5</span>
-            <div class="metric-label">Pipeline Steps</div>
-          </div>
-          <div class="metric-card">
-            <span class="metric-num">3</span>
-            <div class="metric-label">Retrieval Strategies</div>
           </div>
         </div>
       </div>
@@ -557,34 +547,37 @@ MODEL_NAME=gpt-4o-mini</code></pre>
       </div>
     </section>
 
-    <!-- ====== TEAM ====== -->
-    <section id="team" class="section">
+    <!-- ====== TECHNOLOGIES ====== -->
+    <section id="technologies" class="section">
       <div class="container">
-        <span class="rm-eyebrow"><i class="fa-solid fa-users"></i> Contributors</span>
-        <h2 class="rm-section-title">Team</h2>
+        <span class="rm-eyebrow"><i class="fa-solid fa-microchip"></i> Tech Stack</span>
+        <h2 class="rm-section-title">Technologies</h2>
+        <p class="rm-section-sub">
+          The pipeline is built entirely in Python, leveraging modern NLP and graph
+          processing libraries for each stage of the retrieval-augmented generation loop.
+        </p>
 
-        <div class="spark-grid" style="max-width:600px">
-          <div class="spark-card" style="display:flex;gap:16px;align-items:center">
-            <div style="width:44px;height:44px;border-radius:12px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--rm-primary);flex-shrink:0">NJ</div>
-            <div>
-              <h4 style="margin-bottom:2px">Nikola Jagurinoski</h4>
-              <p style="font-size:0.82rem;color:var(--rm-sub);margin-bottom:4px">Equal Contributor</p>
-              <div style="display:flex;gap:12px;font-size:0.82rem">
-                <a href="https://github.com/IamMistake"><i class="fa-brands fa-github"></i> @IamMistake</a>
-                <a href="mailto:jagurinoskini@gmail.com"><i class="fa-regular fa-envelope"></i> jagurinoskini@gmail.com</a>
-              </div>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon pi-real">
+              <i class="fa-brands fa-python"></i>
             </div>
+            <h4>Core Stack</h4>
+            <p><strong>Python</strong> &mdash; primary language. Knowledge graph construction and retrieval using <strong>NetworkX</strong> for graph operations, <strong>Pydantic</strong> for typed data contracts, and <strong>Typer</strong> for the CLI interface.</p>
           </div>
-          <div class="spark-card" style="display:flex;gap:16px;align-items:center">
-            <div style="width:44px;height:44px;border-radius:12px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--rm-primary);flex-shrink:0">DP</div>
-            <div>
-              <h4 style="margin-bottom:2px">Darko Petrushevski</h4>
-              <p style="font-size:0.82rem;color:var(--rm-sub);margin-bottom:4px">Equal Contributor</p>
-              <div style="display:flex;gap:12px;font-size:0.82rem">
-                <a href="https://github.com/Skadare"><i class="fa-brands fa-github"></i> @Skadare</a>
-                <a href="mailto:petrusevskidare@gmail.com"><i class="fa-regular fa-envelope"></i> petrusevskidare@gmail.com</a>
-              </div>
+          <div class="pillar">
+            <div class="pillar-icon pi-multi">
+              <i class="fa-solid fa-brain"></i>
             </div>
+            <h4>LLM Providers</h4>
+            <p><strong>OpenAI (gpt-4o-mini)</strong> and <strong>DeepSeek (deepseek-chat)</strong> serve as the underlying models for entity extraction, question rewriting, and answer generation across all pipeline steps.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon pi-batch">
+              <i class="fa-solid fa-chart-simple"></i>
+            </div>
+            <h4>Benchmark Baselines</h4>
+            <p>Evaluated against <strong>BM25</strong>, <strong>BGE-base 1.5</strong>, and <strong>Elser</strong> on the <strong>MTRAG</strong> benchmark across four domains (ClapNQ, Cloud, FiQA, Govt) using nDCG and Recall@k metrics.</p>
           </div>
         </div>
       </div>
